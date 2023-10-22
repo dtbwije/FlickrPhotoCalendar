@@ -1,0 +1,2 @@
+rootProject.name = 'photoservice'
+include 'service'
