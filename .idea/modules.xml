@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.iml" filepath="$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.test.iml" filepath="$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flickralbum.iml" filepath="$PROJECT_DIR$/.idea/modules/flickralbum.iml" />
     </modules>
   </component>
 </project>
