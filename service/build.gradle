@@ -1,19 +1,78 @@
+
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'org.example'
+group = 'org.photo'
 version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
 
-repositories {
-    mavenCentral()
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        dependencies {
+
+            implementation 'org.springframework.boot:spring-boot-starter-webflux'
+            implementation 'com.github.scribejava:scribejava-core:8.3.1'
+            // Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+            implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+            testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        }
+    }
 }
 
-test {
+tasks.named('test') {
     useJUnitPlatform()
+}
+
+
+//
+// ---------------------------------------------------------
+// Angular Integration (Located in ./frontend)
+// ---------------------------------------------------------
+//
+
+
+// Detect OS and choose correct npm executable
+def npmExecutable = System.getProperty("os.name").toLowerCase().contains("win") ?
+        "npm.cmd" : "npm"
+
+def angularProjectDir = '${projectDir}\\..\\front-end'
+
+println "Using npm executable: $npmExecutable"
+println "Angular directory: $angularProjectDir"
+
+
+tasks.register("npmInstall", Exec) {
+    println(angularProjectDir)
+    workingDir angularProjectDir
+    commandLine npmExecutable, "install"
+}
+
+tasks.register("npmBuild", Exec) {
+    dependsOn "npmInstall"
+    workingDir angularProjectDir
+    commandLine npmExecutable, "run", "build"
+}
+
+tasks.register("copyFrontend", Copy) {
+    dependsOn "npmBuild"
+    from "${angularProjectDir}/dist/"
+    into "${projectDir}/src/main/resources/static/"
+}
+
+tasks.named("processResources") {
+    dependsOn "copyFrontend"
 }

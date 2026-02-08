@@ -1,0 +1,18 @@
+
+
+tasks.register("npmInstall", Exec) {
+  workingDir projectDir
+  commandLine "npm", "install"
+}
+
+tasks.register("npmBuild", Exec) {
+  dependsOn "npmInstall"
+  workingDir projectDir
+  commandLine "npm", "run", "build"
+}
+
+// Alias to make Gradle recognise ":frontend:build"
+tasks.register("build") {
+  dependsOn "npmBuild"
+}
+

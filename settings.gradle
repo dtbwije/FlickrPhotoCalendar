@@ -1,3 +1,4 @@
 rootProject.name = 'flickralbum'
 include 'service'
+include 'front-end'
 
