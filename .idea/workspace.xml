@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3643348-14d0-4b2b-a73d-4d420e145eb2" name="Changes" comment="Adding a frontend and a backend.">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/build.gradle" afterDir="false" />
+    <list default="true" id="a3643348-14d0-4b2b-a73d-4d420e145eb2" name="Changes" comment="updating the first commit.">
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/AuthRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/CustomOAuth1Api.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/FlickrAlbumApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/UserRouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/WebClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/model/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/org/photo/flickralbum/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_9_0.xml" beforeDir="false" />
@@ -24,13 +30,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/FlickrPhotoCalendar.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/dtbwi/Downloads/flickralbum",
+    "last_opened_file_path": "C:/Users/dtbwi/git/FlickrPhotoCalendar/service/src/main",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -194,12 +197,21 @@
       <option name="project" value="LOCAL" />
       <updated>1770584799803</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updating the first commit.">
+      <option name="closed" value="true" />
+      <created>1770589210360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770589210360</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding a frontend and a backend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding a frontend and a backend." />
+    <MESSAGE value="updating the first commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="updating the first commit." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

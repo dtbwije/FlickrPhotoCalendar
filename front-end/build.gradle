@@ -1,14 +1,22 @@
 
+// Detect OS and choose correct npm executable
+def npmExecutable = System.getProperty("os.name").toLowerCase().contains("win") ?
+  "npm.cmd" : "npm"
 
+// Path to your Angular app (adjust folder name if needed)
+def angularProjectDir = file("${rootProject.projectDir}/front-end")
+
+println "Using npm executable: $npmExecutable"
+println "Angular directory: $angularProjectDir"
 tasks.register("npmInstall", Exec) {
   workingDir projectDir
-  commandLine "npm", "install"
+  commandLine "cmd", "/c", "npm", "install"
 }
 
 tasks.register("npmBuild", Exec) {
   dependsOn "npmInstall"
   workingDir projectDir
-  commandLine "npm", "run", "build"
+  commandLine "cmd", "/c", "npm", "install"
 }
 
 // Alias to make Gradle recognise ":frontend:build"

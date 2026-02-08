@@ -1,0 +1,19 @@
+package org.photo.flickralbum;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+
+@SpringBootApplication
+public class FlickrAlbumApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(FlickrAlbumApplication.class, args);
+
+		//UserClient userClient = configurableApplicationContext.getBean(UserClient.class);
+
+		//System.out.println(">>  =" + userClient.getRequestToken().block());
+	}
+
+}

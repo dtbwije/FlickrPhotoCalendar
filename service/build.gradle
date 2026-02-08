@@ -45,18 +45,18 @@ tasks.named('test') {
 //
 
 
+
 // Detect OS and choose correct npm executable
 def npmExecutable = System.getProperty("os.name").toLowerCase().contains("win") ?
         "npm.cmd" : "npm"
 
-def angularProjectDir = '${projectDir}\\..\\front-end'
+// Path to your Angular app (adjust folder name if needed)
+def angularProjectDir = file("${rootProject.projectDir}/front-end")
 
 println "Using npm executable: $npmExecutable"
 println "Angular directory: $angularProjectDir"
 
-
 tasks.register("npmInstall", Exec) {
-    println(angularProjectDir)
     workingDir angularProjectDir
     commandLine npmExecutable, "install"
 }
@@ -73,6 +73,7 @@ tasks.register("copyFrontend", Copy) {
     into "${projectDir}/src/main/resources/static/"
 }
 
+// Ensure Angular build happens before packaging resources
 tasks.named("processResources") {
     dependsOn "copyFrontend"
 }
