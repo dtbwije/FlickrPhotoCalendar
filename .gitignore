@@ -1,38 +1,41 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+## Exclude All Files
+*
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+## Start adding files one by one
+!.gitignore
+!.gitattributes
 
-### IntelliJ IDEA ###
-.idea
-**/.idea/**
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+## front-end Angular
+!/front-end
+!/front-end/src/**
+!/front-end/.editorconfig
+!/front-end/angular.json
+!/front-end/public
+!/front-end/public/**
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+## Service
+!/service
+!/service/src/
+!/service/src/**
 
-### VS Code ###
-.vscode/
+
+## Typescript
+!**/tsconfig.app.json
+!**/tsconfig.json
+!**/tsconfig.spec.json
+
+##gradle stuff
+!**/build.gradle
+!**/gradlew.bat
+!settings.gradle
+!**/gradle/**
+!**/gradlew
+!**/gradlew/**
+
+## Node.js stuff
+!**/package.json
+!**/package-lock.json
+
+##Documentation
+!**/README.md
+!**/HELP.md

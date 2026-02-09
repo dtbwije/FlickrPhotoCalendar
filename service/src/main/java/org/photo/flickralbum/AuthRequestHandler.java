@@ -26,7 +26,6 @@ public class AuthRequestHandler {
         this.oAuth10aService = oAuth10aService;
     }
     public Mono<ServerResponse> requestTokenHandler(ServerRequest request) {
-        System.out.println("This worked");
         return request.session().flatMap(session->{
             try {
                 requestToken = oAuth10aService.getRequestTokenAsync().get();

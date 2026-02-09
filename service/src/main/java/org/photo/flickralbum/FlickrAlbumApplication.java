@@ -11,9 +11,6 @@ public class FlickrAlbumApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(FlickrAlbumApplication.class, args);
 
-		//UserClient userClient = configurableApplicationContext.getBean(UserClient.class);
-
-		//System.out.println(">>  =" + userClient.getRequestToken().block());
 	}
 
 }

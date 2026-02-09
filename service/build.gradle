@@ -15,21 +15,15 @@ java {
     }
 }
 
-subprojects {
-    repositories {
-        mavenCentral()
-    }
-
+dependencies {
     dependencies {
-        dependencies {
 
-            implementation 'org.springframework.boot:spring-boot-starter-webflux'
-            implementation 'com.github.scribejava:scribejava-core:8.3.1'
-            // Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-            implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        implementation 'org.springframework.boot:spring-boot-starter-webflux'
+        implementation 'com.github.scribejava:scribejava-core:8.3.1'
+        // Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-            testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        }
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 }
 
@@ -65,6 +59,12 @@ tasks.register("npmBuild", Exec) {
     dependsOn "npmInstall"
     workingDir angularProjectDir
     commandLine npmExecutable, "run", "build"
+}
+
+tasks.register("npmStart", Exec) {
+    dependsOn "npmInstall"
+    workingDir angularProjectDir
+    commandLine npmExecutable, "start"
 }
 
 tasks.register("copyFrontend", Copy) {
