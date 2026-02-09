@@ -7,6 +7,7 @@
 
 ## front-end Angular
 !/front-end
+!/front-end/src
 !/front-end/src/**
 !/front-end/.editorconfig
 !/front-end/angular.json
@@ -26,11 +27,11 @@
 
 ##gradle stuff
 !**/build.gradle
-!**/gradlew.bat
 !settings.gradle
-!**/gradle/**
-!**/gradlew
-!**/gradlew/**
+!/gradle
+!/gradle/**
+!gradlew
+!/gradlew.bat
 
 ## Node.js stuff
 !**/package.json
