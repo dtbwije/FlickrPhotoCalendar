@@ -13,6 +13,10 @@
 !/front-end/angular.json
 !/front-end/public
 !/front-end/public/**
+!/front-end/src/app/
+!/front-end/src/app/**
+!/front-end/src/app/flickr-auth-redirect/
+!/front-end/src/app/flickr-auth-redirect/**
 
 ## Service
 !/service
