@@ -1,5 +1,5 @@
-import { Component, signal , OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, signal, inject } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -10,7 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class App  {
-  name = 'Tharanga';
+private activatedRoute = inject(ActivatedRoute)
   protected readonly title = signal('Flickr-App');
-  constructor(private route: ActivatedRoute) {}
+  protected readonly name = signal("some value");
+  oauth_token :string ="";
+  oauth_verifier:string="";
+
+
+  constructor(private route: ActivatedRoute) {
+    console.log(this.activatedRoute);
+
+    this.route.queryParams.subscribe(params => {
+        this.oauth_token=params['oauth_token']
+        this.oauth_verifier=params['oauth_verifier']
+        console.log(this.oauth_token + "000"+ this.oauth_verifier)
+    })
+  }
 }
