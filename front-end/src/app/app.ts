@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
-import {app-flickr-auth-redirect} from
+import { Component, signal , OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
-  imports: [],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
+  imports: [],
 })
-export class App {
-  protected readonly title = signal('front-end');
+
+export class App  {
+  name = 'Tharanga';
+  protected readonly title = signal('Flickr-App');
+  constructor(private route: ActivatedRoute) {}
 }
