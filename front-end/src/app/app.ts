@@ -1,12 +1,13 @@
-import { Component, signal, inject } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { Component, signal, inject  } from '@angular/core';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Header } from './components/header/header';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  imports: [],
+  imports: [ Header, RouterOutlet ],
 })
 
 export class App  {

@@ -1,6 +1,15 @@
 # FrontEnd
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+This is meant to be a front end for the Flickr-google photos app.
+
+
+## Important Lessons to be learng
+
+-  Use angular developer tools in vs code and also in chrome.
+- ctrl + p give you a debug state where you can debug.
+
+rmdir /s /q node_modules
+
 
 ## Development server
 
