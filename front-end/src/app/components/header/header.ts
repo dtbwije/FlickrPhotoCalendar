@@ -8,6 +8,7 @@ import { RouterLink} from '@angular/router'
   styleUrl: './header.css',
 })
 export class Header {
-  protected readonly name = signal("some value");
+  protected readonly title = signal("Home");
+  protected readonly name = signal("Flickr Photo Calendar");
   
 }

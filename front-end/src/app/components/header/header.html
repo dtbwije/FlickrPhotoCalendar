@@ -1,13 +1,13 @@
-<h1>This header is ok {{ name() }}</h1>
-<nav>
-  <span>
-    <ul>
-      <li routerLink="/">
-        Home
-      </li>
-      <li routerLink="/todos">
-        Todos
-      </li>
-    </ul>
-  </span>
-</nav>
+<header>
+  <h1> {{ name() }}</h1>
+  <nav>
+    <span routerLink="/">{{ title() }} </span>
+
+      <ul >
+        <li routerLink="/todos">
+          Todos
+        </li>
+      </ul>
+    
+  </nav>
+</header>

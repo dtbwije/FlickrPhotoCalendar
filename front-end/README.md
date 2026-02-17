@@ -2,6 +2,10 @@
 
 This is meant to be a front end for the Flickr-google photos app.
 
+- angular commands 
+    ng g c <component-name> --> 
+    ng g service <service-name>-->
+
 
 ## Important Lessons to be learng
 
