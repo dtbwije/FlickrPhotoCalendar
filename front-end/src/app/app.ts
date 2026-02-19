@@ -1,7 +1,7 @@
 import { Component, signal, inject  } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
-import { HttpClient } from  '@angular/common/http'
+import { HttpClient, HttpResponse } from  '@angular/common/http'
 
 @Component({
   standalone: true,
@@ -29,8 +29,9 @@ private activatedRoute = inject(ActivatedRoute)
         this.oauth_token=params['oauth_token']
         this.oauth_verifier=params['oauth_verifier']
         console.log(this.oauth_token + "000"+ this.oauth_verifier)
+        this.getVerificationToken(this.oauth_token, this.oauth_verifier);
     });
-    this.getVerificationToken(this.oauth_token, this.oauth_verifier);
+    
   }
 
   getVerificationToken(token:string, verifier:string){
@@ -39,7 +40,13 @@ private activatedRoute = inject(ActivatedRoute)
       console.error("Token or verifier is missing. Token: " + token + ", Verifier: " + verifier);
       return;
     }
+    console.log("Constructing URL with token: " + token + " and verifier: " + verifier);
     const url = 'http://localhost:8080/access_Token?oauth_token=' + token + '&oauth_verifier=' + verifier;
-    return this.http.get(url);
+    
+    this.http.get<any>(url, { observe: 'response' }).subscribe((config: HttpResponse<any>) => {
+      console.log("Constructing URL with token: " + token + " and verifier: " + verifier);
+      console.log('Response status:', config.status);
+      console.log('Body:', config.body);
+    });;
   }
 }
