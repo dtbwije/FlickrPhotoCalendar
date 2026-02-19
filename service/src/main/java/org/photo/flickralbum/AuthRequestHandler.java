@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.ExecutionException;
 
 //http://localhost:8080/hello?oauth_token=72157720963145342-62edeea4d6640cb2&oauth_verifier=fa6a7cfeb109facd
@@ -27,6 +28,7 @@ public class AuthRequestHandler {
     }
     public Mono<ServerResponse> requestTokenHandler(ServerRequest request) {
         return request.session().flatMap(session->{
+            System.out.println("SessionID -->" +session.getId());
             try {
                 requestToken = oAuth10aService.getRequestTokenAsync().get();
             } catch (InterruptedException e) {
@@ -34,29 +36,34 @@ public class AuthRequestHandler {
             } catch (ExecutionException e) {
                 throw new RuntimeException(e);
             }
-            session.getAttributes().put("Request_token", request);
+            session.getAttributes().put("Request_token", requestToken);
             String authUrl = oAuth10aService.getAuthorizationUrl(requestToken);
             return ServerResponse.temporaryRedirect(URI.create(authUrl)).build();
         });
     }
 
+    //http://localhost:8080/access_Token?oauth_token=' + token + '&oauth_verifier=' + verifier;
     public Mono<ServerResponse> authTokenHandler(ServerRequest request){
         return request.session().flatMap(session -> {
-            requestToken =
-                    (OAuth1RequestToken) session.getAttribute("Request_token");
+            System.out.println("SessionID 2-->" +session.getId());
+            OAuth1RequestToken tempToken =
+                    session.getAttribute("Request_token");
+            System.out.println(tempToken.getToken());
             OAuth1AccessToken accessToken = null;
             try {
-                accessToken = oAuth10aService.getAccessToken(requestToken, request.queryParam("verifier").get());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                accessToken = oAuth10aService.getAccessTokenAsync(requestToken, request.queryParam("oauth_verifier").get()).get();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } catch (ExecutionException e) {
                 throw new RuntimeException(e);
             }
             System.out.println("Access Token: " + accessToken.getToken());
-            return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON
-            ).body(BodyInserters.fromValue(new User("Tharanga Wijethilake" , new Address( "10", "Hakkuritie", "Oulu"))));
+            try {
+                return ServerResponse.temporaryRedirect(new URI("http://localhost:4200")).contentType(MediaType.APPLICATION_JSON
+                ).body(BodyInserters.fromValue(new User("Tharanga Wijethilake" , new Address( "10", "Hakkuritie", "Oulu"))));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 }
