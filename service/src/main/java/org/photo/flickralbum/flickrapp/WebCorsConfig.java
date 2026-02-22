@@ -1,6 +1,5 @@
-package org.photo.flickralbum;
+package org.photo.flickralbum.flickrapp;
 
-import org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;

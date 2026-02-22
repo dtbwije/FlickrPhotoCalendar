@@ -1,4 +1,4 @@
-package org.photo.flickralbum;
+package org.photo.flickralbum.flickrapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,6 @@ public class FlickrAlbumApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(FlickrAlbumApplication.class, args);
-
 	}
 
 }
